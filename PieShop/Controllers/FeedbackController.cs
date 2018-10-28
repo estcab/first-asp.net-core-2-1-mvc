@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PieShop.Models;
 
@@ -9,6 +10,7 @@ using PieShop.Models;
 
 namespace PieShop.Controllers
 {
+    [Authorize]
     public class FeedbackController : Controller
     {
         private readonly IFeedbackRepository _feedbackRepository;
@@ -32,7 +34,6 @@ namespace PieShop.Controllers
             return RedirectToAction("FeedbackComplete");
 
         }
-
 
         public IActionResult FeedbackComplete()
         {
